@@ -1,0 +1,31 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use GD;
+
+my $panel = GD::Image->new('mysymb.GIF');
+
+
+my $dim = 20;
+my $x = 0;
+my $y = 0;
+for my $i (33..128) {
+  print chr $i;
+
+  my $icon = GD::Image->new($dim, $dim);
+  my $black = $icon->colorAllocate(0,0,0);
+  $icon->transparent($black);
+  $icon->copy($panel, -1, -1, $x+$x*$dim, $y+$y*$dim, $dim, $dim);
+  my $io = IO::File->new(">$i.png");
+  $io->binmode();
+  print $io $icon->png;
+  $io->close;
+
+  if(! (($i-32) % 16)) {
+    print "\n";
+    $y++;
+    $x=0;
+  }
+  $x++;
+}
+

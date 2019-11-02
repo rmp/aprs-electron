@@ -4,8 +4,11 @@ html(lang="en")
     title= pageTitle
     link(rel='stylesheet',href='styles.css')
   body
+    .container.map
+      #mapbox
+      script(src='client.js')
     h1 Pug - node template engine
-    #container
+    .container.content
       - if (youAreUsingPug)
          You are amazing
       - else
@@ -13,5 +16,3 @@ html(lang="en")
          Get on it!
          Get on it!
          Get on it!
-    #mapbox
-    script(src='client.js')

@@ -1,5 +1,9 @@
 @import 'css/mapbox-gl.css';
 
+.container.map {
+    height: 400px;
+}
+
 #mapbox {
     position:inherit;
     top:0;
