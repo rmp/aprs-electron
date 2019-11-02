@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    link(rel='stylesheet',href='styles.css')
+  body
+    h1 Pug - node template engine
+    #container
+      - if (youAreUsingPug)
+         You are amazing
+      - else
+         Get on it!
+         Get on it!
+         Get on it!
+         Get on it!
+    #mapbox
+    script(src='client.js')

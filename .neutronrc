@@ -14,14 +14,14 @@
     },
     "sass": {
       "extensions": ["scss", "css"],
-      "includePaths": ["src/scss_include"]
+      "includePaths": ["src/scss_include","node_modules"]
     }
   },
   "cleanIgnore": [],
   "packager": {
     "dir": "dist",
     "out": "packages",
-    "name": "neutron",
+    "name": "aprs-viewer",
     "platform": "all",
     "arch": "all",
     "version": "1.0.2",

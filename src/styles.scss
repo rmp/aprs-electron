@@ -1,0 +1,15 @@
+@import 'css/mapbox-gl.css';
+
+#mapbox {
+    position:inherit;
+    top:0;
+    bottom:0;
+    width:100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
