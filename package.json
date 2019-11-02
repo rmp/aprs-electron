@@ -1,12 +1,12 @@
 {
-  "name": "aprs-viewer",
-  "version": "1.2.0",
-  "description": "Neutron: the zero point of electron applications",
-  "author": "Yan Foto <yan.foto@quaintous.com>",
+  "name": "aprs-electron",
+  "version": "0.0.1",
+  "description": "Electron-based APRS viewer",
+  "author": "Roger Pettett <rmp@psyphi.net>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yan-foto/neutron"
+    "url": "https://github.com/rmp/aprs-electron"
   },
   "scripts": {
     "start": "gulp start",

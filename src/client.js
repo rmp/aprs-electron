@@ -5,8 +5,27 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoicm1wIiwiYSI6ImNrMjgycGVsbzF0NzczZG1xbXIxdzhja
 
 const map = new mapboxgl.Map({
 	container: "mapbox",
-	style: "mapbox://styles/mapbox/streets-v11"
+	style: "mapbox://styles/mapbox/streets-v11",
+	zoom: 8,
 });
+
+
+fetch('https://freegeoip.app/json/')
+	.then(response => response.json())
+	.then(blob => {
+		const { latitude, longitude } = blob;
+		console.log("GeoIP says you are at", latitude, longitude);
+
+		map.flyTo({
+			center: [longitude, latitude]
+		});
+
+		map.on('moveend', function() {
+			const centre = map.getBounds().getCenter();
+			console.log(`requesting new position r/${centre.lat}/${centre.lng}/50`);
+			ipcRenderer.send('location', JSON.stringify({longitude: centre.lng, latitude: centre.lat}));
+		});
+	});
 
 const data = {
     "type": "FeatureCollection",
@@ -52,7 +71,7 @@ ipcRenderer.on('aprs', (event, obj) => {
 	}
 
 	const { latitude, longitude } = obj.data;
-//		console.log(obj);
+	console.log(obj);
 	const chr = obj.data.symbol.charCodeAt(1); // two-char symbol e.g. "/_" or "/#"
 
 	data.features.unshift({
