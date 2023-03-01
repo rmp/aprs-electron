@@ -41,6 +41,6 @@
     "aprs-parser": "^1.0.4",
     "gulp-jade": "^1.1.0",
     "jade": "^1.11.0",
-    "mapbox-gl": "^1.5.0"
+    "mapbox-gl": "^1.13.3"
   }
 }
